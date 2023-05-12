@@ -1,3 +1,18 @@
+# This script searches for missing DOIs in a .bib file
+# and fills them in using the Crossref API.
+#
+# Dependencies:
+#    * requests
+#
+# Example:
+#    python doi_scraper.py
+#
+# @author: Alberto Cuadra Lara
+#          PhD Candidate - Group Fluid Mechanics
+#          Universidad Carlos III de Madrid
+#                  
+# Last update May 12 2023
+
 import re
 import requests
 
