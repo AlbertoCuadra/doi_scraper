@@ -11,7 +11,7 @@
 #          PhD Candidate - Group Fluid Mechanics
 #          Universidad Carlos III de Madrid
 #                  
-# Last update May 12 2023
+# Last update May 13 2023
 
 import re
 import requests
@@ -22,6 +22,13 @@ output_file = 'output.bib' # Output .bib file
 INDENT_PRE = 4             # Number of spaces before the field name
 INDENT_POST = 16           # Number of spaces after the field name
 
+
+# Function that prepares a given title for comparison
+def prepare_title(title):
+    title = title.lower()
+    title = re.sub(r'[–‐]', '-', title)
+    title = re.sub(r'--', '-', title)
+    return title
 
 # Function to get DOI based on article title
 def get_doi(title):
@@ -37,16 +44,25 @@ def get_doi(title):
         # Sort items by published date (newest first)
         items = sorted(data['message']['items'], key=lambda x: x.get('created', {}).get('date-time'), reverse=True)
         
+        # Prepare title for comparison
+        title_lower = prepare_title(title)
+        
+        # Search for DOI
         for item in items:
             item_title = item.get('title', [''])[0]
-            doi = item['DOI']
-            if not doi.endswith('.vid') and title.lower() in item_title.lower():
-                return doi
+            
+            # Prepare title for comparison
+            item_title_lower = prepare_title(item_title)
+
+            # print('Comparing:\n', title_lower, '\n', item_title_lower, '\n') # (debug)
+            
+            # Compare titles
+            if title_lower in item_title_lower:
+                doi = item['DOI']
+                if not doi.endswith('.vid'):
+                    return doi
         
     return ''
-
-
-
 
 def process_bib_line(line, current_item):
     if line.startswith('@'):
