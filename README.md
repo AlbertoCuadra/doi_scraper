@@ -1,4 +1,5 @@
 # DOI Scraper
+[![DOI](https://zenodo.org/badge/640054736.svg)](https://zenodo.org/badge/latestdoi/640054736)
 
 The DOI Scraper is a Python script that reads a `.bib` file, searches for articles without a DOI (Digital Object Identifier), and retrieves the missing DOIs using the [Crossref API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/). It then updates the `.bib` file with the retrieved DOIs.
 
