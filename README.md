@@ -14,7 +14,7 @@ The DOI Scraper is a Python script that reads a `.bib` file, searches for articl
 2. Install the required dependencies by running the following command:
 
 ```shell
-   pip install requests
+pip install requests
 ```
 
 # Usage
@@ -24,16 +24,16 @@ Place your input `.bib` file in the same directory as the `doi_scraper.py` scrip
 Open the `doi_scraper.py` file and modify the following variables according to your needs:
 
 ```python
-    input_file = 'input.bib'   # Name of the input .bib file
-    output_file = 'output.bib' # Name of the output .bib file
-    INDENT_PRE = 4             # Number of spaces before the field name
-    INDENT_POST = 16           # Number of spaces after the field name
+input_file = 'input.bib'   # Name of the input .bib file
+output_file = 'output.bib' # Name of the output .bib file
+INDENT_PRE = 4             # Number of spaces before the field name
+INDENT_POST = 16           # Number of spaces after the field name
 ```
 
 Run the script using the following command:
 
 ```shell
-    python doi_scraper.py
+python doi_scraper.py
 ```
 
 The script will search for articles without a DOI and retrieve the missing DOIs using the Crossref API. It will then update the output .bib file with the retrieved DOIs.
