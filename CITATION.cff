@@ -3,7 +3,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using these metadata."
 type: misc
-license: "MIT license"
+license: "MIT"
 title: "DOI Scraper"
 version: 1.1.1
 doi: 10.5281/zenodo.7932535
@@ -16,7 +16,6 @@ authors:
     family-names: "Cuadra"
     given-names: A
     orcid: "https://orcid.org/0000-0001-8280-2426"
-cff-version: 1.1.0
 keywords: 
   - scraper
   - latex
