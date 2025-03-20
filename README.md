@@ -43,11 +43,7 @@ Once the script completes, you will find the updated .bib file with the retrieve
 
 ## Optional Arguments
 
-* `--format-only`: If you want to reformat the file without performing any Crossref lookups, pass the --format-only flag:
-
-```shell
-python doi_scraper.py --format-only
-```
+* `--format-only`: If you want to reformat the file without performing any Crossref lookups.
 
 # Example
 
