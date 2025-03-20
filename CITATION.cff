@@ -1,0 +1,27 @@
+# YAML 1.2
+---
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+type: misc
+license: "MIT"
+title: "DOI Scraper"
+version: 1.1.1
+doi: 10.5281/zenodo.7932535
+date-released: 2023-05-13
+url: "https://github.com/AlbertoCuadra/doi_scraper"
+abstract:
+    "The DOI Scraper is a Python script that reads a .bib file, searches for articles without a DOI (Digital Object Identifier), and retrieves the missing DOIs using the Crossref API. It then updates the .bib file with the retrieved DOIs."
+authors: 
+  -
+    family-names: "Cuadra"
+    given-names: A
+    orcid: "https://orcid.org/0000-0001-8280-2426"
+keywords: 
+  - scraper
+  - latex
+  - bibtex
+  - doi
+  - crossref
+  - "crossref-api"
+  - python
+  - "open-source"
