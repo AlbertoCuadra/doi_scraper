@@ -5,12 +5,12 @@ message: "If you use this software, please cite it using these metadata."
 type: misc
 license: "MIT"
 title: "DOI Scraper"
-version: 1.1.1
+version: 1.2.0
 doi: 10.5281/zenodo.7932535
-date-released: 2023-05-13
+date-released: 2025-03-20
 url: "https://github.com/AlbertoCuadra/doi_scraper"
 abstract:
-    "The DOI Scraper is a Python script that reads a .bib file, searches for articles without a DOI (Digital Object Identifier), and retrieves the missing DOIs using the Crossref API. It then updates the .bib file with the retrieved DOIs."
+    "The DOI Scraper is a Python script that reads a `.bib` file, searches for entries missing required fields (such as a DOI), retrieves the missing information using the Crossref API, and reformats the file with consistent indentation. The refactored design supports different entry types (e.g., articles, books, inproceedings, tech reports), with each type defining its own required fields."
 authors: 
   -
     family-names: "Cuadra"
