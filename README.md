@@ -1,11 +1,12 @@
 # DOI Scraper
 
-The DOI Scraper is a Python script that reads a `.bib` file, searches for articles without a DOI (Digital Object Identifier), and retrieves the missing DOIs using the [Crossref API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/). It then updates the `.bib` file with the retrieved DOIs.
+The DOI Scraper is a Python script that reads a `.bib` file, searches for entries missing required fields (such as a DOI), retrieves the missing information using the [Crossref API](https://www.crossref.org/documentation/retrieve-metadata/rest-api/), and reformats the file with consistent indentation. The refactored design supports different entry types (e.g., articles, books, inproceedings, tech reports), with each type defining its own required fields.
 
 ## Prerequisites
 
-* Python
-* `requests` library
+- Python 3.x
+- `requests` library
+- `tqdm` library
 
 ## Installation
 
@@ -14,7 +15,7 @@ The DOI Scraper is a Python script that reads a `.bib` file, searches for articl
 2. Install the required dependencies by running the following command:
 
 ```shell
-pip install requests
+pip install -r requirements.txt
 ```
 
 # Usage
@@ -40,6 +41,14 @@ The script will search for articles without a DOI and retrieve the missing DOIs 
 
 Once the script completes, you will find the updated .bib file with the retrieved DOIs in the same directory.
 
+## Optional Arguments
+
+* `--format-only`: If you want to reformat the file without performing any Crossref lookups, pass the --format-only flag:
+
+```shell
+python doi_scraper.py --format-only
+```
+
 # Example
 
 ## Before
@@ -48,10 +57,6 @@ Once the script completes, you will find the updated .bib file with the retrieve
 @article{Cuadra2020,
 title            = {Effect of equivalence ratio fluctuations on planar detonation discontinuities},
 author   = {Cuadra, Alberto and Huete, C{\'e}sar and Vera, Marcos},
-year    = 2020,
-journal  = {Journal of Fluid Mechanics},
-publisher    = {Cambridge University Press},
-volume       = 903,
 pages= {A30 1--39}
 }
 ```
@@ -60,14 +65,13 @@ pages= {A30 1--39}
 
 ```bibtex
 @article{Cuadra2020,
-    title            = {Effect of equivalence ratio fluctuations on planar detonation discontinuities},
-    author           = {Cuadra, Alberto and Huete, C{\'e}sar and Vera, Marcos},
-    year             = 2020,
-    journal          = {Journal of Fluid Mechanics},
-    publisher        = {Cambridge University Press},
-    volume           = 903,
-    pages            = {A30 1--39},
-    doi              = {10.1017/jfm.2020.651}
+    title           = {Effect of equivalence ratio fluctuations on planar detonation discontinuities},
+    author          = {Cuadra, Alberto and Huete, C{\'e}sar and Vera, Marcos},
+    pages           = {A30 1--39},
+    year            = {2020},
+    journal         = {Journal of Fluid Mechanics},
+    volume          = {903},
+    doi             = {10.1017/jfm.2020.651},
 }
 ```
 
